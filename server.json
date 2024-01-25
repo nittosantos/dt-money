@@ -15,6 +15,22 @@
       "category": "Alimentação",
       "price": 80,
       "createdAt": "2023-12-25T12:44:05.004Z"
+    },
+    {
+      "id": 3,
+      "description": "Comida Japonesa",
+      "type": "outcoming",
+      "category": "Alimentação",
+      "price": 200,
+      "createdAt": "2024-12-25T10:44:05.004Z"
+    },
+    {
+      "id": 4,
+      "description": "Desenvolvimento Loja",
+      "type": "incoming",
+      "category": "Trabalho",
+      "price": 480,
+      "createdAt": "2024-12-25T11:44:05.004Z"
     }
   ]
 }

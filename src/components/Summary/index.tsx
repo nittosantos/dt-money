@@ -1,7 +1,29 @@
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from "phosphor-react";
 import { SummaryCard, SummaryContainer } from "./styles";
+import { useContext } from "react";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 export function Summary() {
+  const { transactions } = useContext(TransactionsContext);
+
+  const summary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type === "incoming") {
+        acc.incoming += transaction.price;
+        acc.total += transaction.price;
+      } else {
+        acc.outcoming += transaction.price;
+        acc.total -= transaction.price;
+      }
+      return acc;
+    },
+    {
+      incoming: 0,
+      outcoming: 0,
+      total: 0,
+    }
+  );
+
   return (
     <SummaryContainer>
       <SummaryCard>
@@ -10,7 +32,7 @@ export function Summary() {
           <ArrowCircleUp size={32} color="#00b37e" />
         </header>
 
-        <strong>R$ 17.400,00</strong>
+        <strong>{summary.incoming}</strong>
       </SummaryCard>
 
       <SummaryCard>
@@ -19,16 +41,16 @@ export function Summary() {
           <ArrowCircleDown size={32} color="#f75a68" />
         </header>
 
-        <strong>R$ 17.400,00</strong>
+        <strong>{summary.outcoming}</strong>
       </SummaryCard>
 
-      <SummaryCard variant="green">
+      <SummaryCard variant={summary.total > 0 ? "green" : "red"}>
         <header>
           <span>Total</span>
           <CurrencyDollar size={32} color="#fff" />
         </header>
 
-        <strong>R$ 17.400,00</strong>
+        <strong>{summary.total}</strong>
       </SummaryCard>
     </SummaryContainer>
   );
