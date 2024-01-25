@@ -31,6 +31,22 @@
       "category": "Trabalho",
       "price": 480,
       "createdAt": "2024-12-25T11:44:05.004Z"
+    },
+    {
+      "description": "Jantar Fora",
+      "price": 150,
+      "category": "Alimentação",
+      "type": "outcoming",
+      "createdAt": "2024-01-25T19:06:53.995Z",
+      "id": 5
+    },
+    {
+      "description": "Hamburguer",
+      "price": 30,
+      "category": "Alimentação",
+      "type": "outcoming",
+      "createdAt": "2024-01-25T19:38:44.549Z",
+      "id": 6
     }
   ]
 }
